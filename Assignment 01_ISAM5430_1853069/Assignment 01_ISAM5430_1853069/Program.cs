@@ -20,7 +20,7 @@ namespace Practise02
             Console.WriteLine("Enter second number");
 
             // Reads the input as a string and converts to integer
-            int num2 = Convert.ToInt32(Console.ReadLine()); 
+            int num2 = Convert.ToInt32(Console.ReadLine());
 
             // Taking opearator as input from user
             Console.WriteLine("Enter the operator:(+, -, /, *)");
@@ -28,12 +28,12 @@ namespace Practise02
             // Returns a String
             string op = Console.ReadLine();
 
-            if(op == "+")
+            if (op == "+")
             {
                 // Assigning the sum of (num1+num2) in sum variable
                 int sum = num1 + num2;
                 // Printing the sum of (num1 + num2)
-                Console.WriteLine("Sum is {0}," ,sum);
+                Console.WriteLine("Sum is {0},", sum);
             }
             else if (op == "-")
             {
@@ -64,7 +64,7 @@ namespace Practise02
                 // Printing Invalid expression
                 Console.WriteLine("Invalid Expression");
             }
-            
+
 
 
 
