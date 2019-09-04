@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29020.237
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assignment 01_ISAM5430_1853069", "Assignment 01_ISAM5430_1853069\Assignment 01_ISAM5430_1853069.csproj", "{870F21A7-4FCD-4C3D-9BCD-FE55395489D2}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HW1A", "Assignment 01_ISAM5430_1853069\HW1A.csproj", "{870F21A7-4FCD-4C3D-9BCD-FE55395489D2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -33,14 +33,14 @@ namespace Practise02
                 // Assigning the sum of (num1+num2) in sum variable
                 int sum = num1 + num2;
                 // Printing the sum of (num1 + num2)
-                Console.WriteLine("Sum is {0},", sum);
+                Console.WriteLine($"sum is, {sum}.");
             }
             else if (op == "-")
             {
                 // Assigning the substraction of (num1,num2) in substraction variable
                 int subtraction = num1 - num2;
                 // Printing the substraction of (num1 - num2)
-                Console.WriteLine("Substration is {0}", subtraction);
+                Console.WriteLine($"Substration is, {subtraction}." );
             }
             else if (op == "/")
             {
@@ -48,7 +48,7 @@ namespace Practise02
                 int division = num1 / num2;
 
                 // Printing the division of (num1/num2)
-                Console.WriteLine("Division is {0}", division);
+                Console.WriteLine($"Division is , {division}.");
             }
             else if (op == "*")
 
@@ -57,7 +57,7 @@ namespace Practise02
                 int multiplication = num1 * num2;
 
                 // Printing the Multiplication of (num1 *  num2)
-                Console.WriteLine("Multiplication is {0}", multiplication);
+                Console.WriteLine($"Multiplication is, {multiplication} .");
             }
             else
             {
