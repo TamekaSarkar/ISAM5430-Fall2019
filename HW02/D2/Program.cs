@@ -10,7 +10,7 @@ namespace D2
     {
         static void Main(string[] args)
         {
-            //D2. Question1 
+            //D2. Question8 
             int[] array = { 1,1,1,1,1 };
             int clump = 0;
             bool flag = false;
