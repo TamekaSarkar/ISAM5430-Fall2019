@@ -1,0 +1,61 @@
+#Q1 1. Read data from HoustonCrime.csv, use the OBJECTID as the index. 
+#Drop records that have missing values in any of X, Y, Time_Begun, HPD_Division, Premise_Type or Zip_Code. 
+#Verify that you should have 8206 records.
+#Convert Zip_Code into a String
+
+data = pd.read_csv("HoustonCrime.csv", index_col = "OBJECTID")
+data.dropna(subset = ["X","Y","Time_Begun","HPD_Division","Premise_Type","Zip_Code"], inplace = True)
+data1 = pd.DataFrame(data)
+len(data)
+data["Zip_Code"] = data["Zip_Code"].astype(int).astype(str)
+
+------------------------------------------------------
+#Q2  Create a line chart with a title, markers, X and Y labels, a legend placed at the left bottom, 
+#for the numbers of theft cases based on dates
+#data['Time_Begun'] = data['Time_Begun'].str[:10]
+#dates = data['Time_Begun'].unique()
+#dates.sort()
+#dates
+#data.sort_values(by = 'Time_Begun', inplace = True)
+from datetime import datetime
+#data['Time_Begun'] = [datetime.strptime(x, '%Y-%m-%d') for x in data['Time_Begun']]
+data4= pd.crosstab(data['Time_Begun'].dt.date,data['Offense'])
+theft_data = data4['Theft']
+
+ax = theft_data.plot(figsize = (14,8), marker = 's', label ="numbers of theft cases based on dates")
+plt.legend(loc = 'lower left')
+ax.set_xlabel('Dates')
+ax.set_ylabel('Num of  Theft cases')
+ax.set_title('Number of Theft cases by Dates', size = 20)
+ax.grid()
+--------------------------------------------------------------
+#3. Write statements to answer: which HPD_Division has the largest number of crime cases (by all types)?
+ data1["HPD_Division"].max()
+-------------------
+4. Create a BLUE bar chart of burglary cases based on zip code, including a bigger size title, X, Y labels.
+ax = data.where(data["Offense"] == "Burglary").groupby(data["Zip_Code"]).size().plot(figsize = (25,9),kind='bar',color = 'b')
+
+ax.set_xlabel('Zip_Code')
+ax.set_ylabel('Num of  Burglary cases')
+ax.set_title('Number of Burglary cases by zip_codes', size = 30)
+-------------------------------------
+#Q5. Create a heat map based on Premise Type and Offenses. Please answer the questions: 
+#what are the serious cases (offenses in premise types) you see from this chart? 
+data1 = pd.crosstab(data['Premise_Type'], data['Offense'])
+data1
+ns.set(rc = {'figure.figsize':(21,8)}) #reset the default size of figure in seaborn
+sns.heatmap(data1, cmap = 'YlGnBu'
+-----------------------------------------------------
+#Q8. 
+#Create a stacked column chart based on HPD_Division and Offenses (different types)
+ax = pd.crosstab(data['HPD_Division'], data['Offense'])
+ax.plot(kind = 'barh', stacked = True, figsize = (16,8), grid = True)
+ax
+------------------------------------------------------------------
+ax =data.groupby(["HPD_Division","Offense"]).size().unstack().plot(kind='barh', stacked=True)
+ax
+
+
+#ax.set_xlabel('Zip_Code')
+#ax.set_ylabel('Num of  Burglary cases')
+#ax.set_title('Number of Burglary cases by zip_codes', size = 30)
