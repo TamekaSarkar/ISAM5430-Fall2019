@@ -1,0 +1,60 @@
+
+
+
+df = pd.read_csv("Airbnb_Texas_Rentals(1).csv", index_col = 0)
+
+df.head(2)
+-------------------------------------------------------------------------------
+bools = pd.isnull(df['average_rate_per_night'])
+bools = pd.isnull(df['average_rate_per_night'])
+bools.any()
+True
+--------------------------------------------------------------------------
+df[df['average_rate_per_night'].isnull()].head(2)
+df[df['average_rate_per_night'].isnull()].head(2)
+------------------------------------------------------------------------------
+?
+
+-------------------------
+df.dropna(subset = ['average_rate_per_night','bedrooms_count'], inplace = True)
+bools = df['average_rate_per_night'].isnull()
+bools.any()
+False
+---------------------------------------------------
+
+df['city'].fillna('Not available', inplace = True)
+?
+df[df['city']== 'Not available']
+
+df['description'].fillna('Not available', inplace = True)
+---------------------------------------------------------------------
+
+df['average_rate_per_night'] = df['average_rate_per_night'].str.replace('$', '')
+df['average_rate_per_night'].fillna(0).astype(int)
+
+df['average_rate_per_night'] = df['average_rate_per_night'].astype(int,inplace = True)
+df['average_rate_per_night'].head()
+
+
+--------------------------------------------------------
+
+bools= df['average_rate_per_night']<0
+bools.any()
+False
+----------------------------------------------------------------
+df['average_rate_per_night'].mean()
+211.5589752029844
+bedrooms_count
+df['bedrooms_count'].value_counts()
+
+-------------------------------------------------------
+average_rate_per_night
+a = df[df['bedrooms_count'] == 'Studio']
+a['average_rate_per_night'].mean()
+106.34375
+b= df[df['bedrooms_count'] == '1']
+b['average_rate_per_night'].mean()
+90.44042666666667
+
+------------------------------------------------------------------------------------
+?
