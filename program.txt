@@ -1,0 +1,90 @@
+#18. Please use a scatter plot to display the price distribution of all listings based on different bedroom numbers.
+import matplotlib.pyplot as plt
+plt.figure(figsize=(10,10))
+plt.scatter(data['bedrooms_count'], data['average_rate_per_night'], color = '#0504aa', alpha = 0.7, linewidth = 4, s = 20)
+plt.xlabel('bedrooms_count')
+plt.ylabel('average_rate_per_night')
+plt.grid()
+
+#17. Create a figure with two subplots. The first subplot contains a histogram chart of 1-bedroom listings where the nightly rates is between $0 and $500. Use 50 bins for the histogram chart.
+#The second subplot is a probability density chart of the same data.
+
+HistDenBed = data[data['bedrooms_count'] == '1']
+HistDenAvg = HistDenBed[HistDenBed['average_rate_per_night'].between(0,500, inclusive = True)]
+bedroom1Group = HistDenAvg['average_rate_per_night']
+fig, ax = plt.subplots(1,2, figsize = (12,5))
+ax[0].hist(HistDenAvg['average_rate_per_night'],bins = 50, color = '#0504aa', alpha = 0.7, rwidth = 0.85)
+ax[0].set_xlabel('value')
+ax[0].set_ylabel('frequency')
+ax[0].set_title('Price histogram for one bedroom listing')
+ax[0].grid()
+
+ax[1]=sns.distplot(HistDenAvg['average_rate_per_night'],hist= False,)
+ax[1].set_xlabel('value')
+ax[1].set_ylabel('density')
+ax[1].set_title('Price density for one bedroom listing')
+ax[1].grid()
+
+#16. Create a figure which contains four subplots. Each subplot contains a stacked columns chart of total listings by years. 
+#The four subplot charts are for data of Houston, Dallas, Austin and San Antonio. 
+
+ABhouston = data[data['city'] == 'Houston, TX']
+listHouston = pd.crosstab(ABhouston['date_of_listing'].dt.year, ABhouston['bedrooms_count'])
+
+ABdallas = data[data['city'] == 'Dallas, TX']
+listDallas = pd.crosstab(ABdallas['date_of_listing'].dt.year, ABdallas['bedrooms_count'])
+
+ABaustin = data[data['city'] == 'Austin, TX']
+listAustin = pd.crosstab(ABaustin['date_of_listing'].dt.year, ABaustin['bedrooms_count'])
+
+ABsan = data[data['city'] == 'San Antonio, TX']
+listSan = pd.crosstab(ABsan['date_of_listing'].dt.year, ABsan['bedrooms_count'])
+
+fig3, axes = plt.subplots(2,2, figsize= (12,12), sharey = True)
+ax1 = listHouston.plot.barh(stacked = True, alpha = 0.8, grid = True, ax = axes[0][0])
+ax1.set_title('number of listings of houston')
+plt.ylabel('year')
+
+ax2 = listDallas.plot.barh(stacked = True, alpha = 0.8, grid = True, ax = axes[0][1])
+ax2.set_title('number of listings of dallas')
+plt.ylabel('year')
+
+ax3 = listAustin.plot.barh(stacked = True, alpha = 0.8, grid = True, ax = axes[1][0])
+ax3.set_title('number of listings of Austin')
+plt.ylabel('year')
+
+ax4 = listSan.plot.barh(stacked = True, alpha = 0.8, grid = True, ax = axes[1][1])
+ax4.set_title('number of listings of san Antonio')
+plt.ylabel('year')
+
+#15. Draw a line chart for displaying the average nightly prices of 1-bedroom, 2-bedroom and 3-bedroom by years. 
+#Since there is no data for year 2008 for 2-bedroom and 3-bedroom, the years start from 2009. 
+
+fig, ax= plt.subplots()
+
+
+one_bedroom = data.loc[data['bedrooms_count']=='1']
+two_bedroom = data.loc[data['bedrooms_count'] == '2']
+three_bedroom = data.loc[data['bedrooms_count']== '3']
+ax = one_bedroom['average_rate_per_night'].groupby(data['year1'])
+ax2= two_bedroom['average_rate_per_night'].groupby(data['year1'])
+ax3 = three_bedroom['average_rate_per_night'].groupby(data['year1'])
+ax.mean().plot(figsize = (12,8), marker = 's')
+ax2.mean().plot(figsize = (12,8), marker = 's')
+ax3.mean().plot(figsize = (12,8), marker = 's')
+
+#14. Draw a line chart for displaying the average nightly price (of all types) by years.
+#The line chart needs to have a red color line, a title, and x, y labels. 
+grouped_year = data['average_rate_per_night'].groupby(data['year1'])
+ax= grouped_year.mean().plot(figsize = (8,4), marker = 'o',color = 'red')
+ax.set_xlabel('year')
+ax.set_ylabel('average_rate_per_night')
+ax.set_title('rate based on year')
+
+#18. Please use a scatter plot to display the price distribution of all listings based on different bedroom numbers. 
+import matplotlib.pyplot as plt
+plt.figure(figsize=(10,10))
+plt.scatter(data['bedrooms_count'], data['average_rate_per_night'], color = '#0504aa', alpha = 0.7, linewidth = 4, s = 20)
+plt.xlabel('bedrooms_count')
+plt.ylabel('average_rate_per_night')
+plt.grid()
