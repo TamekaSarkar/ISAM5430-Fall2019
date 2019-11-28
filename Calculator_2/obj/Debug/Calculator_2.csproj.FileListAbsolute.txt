@@ -1,0 +1,6 @@
+C:\Users\Tameka\source\repos\Calculator_2\Calculator_2\bin\Debug\Calculator_2.exe.config
+C:\Users\Tameka\source\repos\Calculator_2\Calculator_2\bin\Debug\Calculator_2.exe
+C:\Users\Tameka\source\repos\Calculator_2\Calculator_2\bin\Debug\Calculator_2.pdb
+C:\Users\Tameka\source\repos\Calculator_2\Calculator_2\obj\Debug\Calculator_2.csprojAssemblyReference.cache
+C:\Users\Tameka\source\repos\Calculator_2\Calculator_2\obj\Debug\Calculator_2.exe
+C:\Users\Tameka\source\repos\Calculator_2\Calculator_2\obj\Debug\Calculator_2.pdb
