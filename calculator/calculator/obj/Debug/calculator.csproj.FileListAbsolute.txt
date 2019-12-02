@@ -1,0 +1,6 @@
+/Users/sourishray/Projects/calculator/calculator/obj/Debug/calculator.csprojAssemblyReference.cache
+C:\Users\Tameka\Downloads\calculator (1)\calculator\calculator\obj\Debug\calculator.csprojAssemblyReference.cache
+C:\Users\Tameka\Downloads\calculator (1)\calculator\calculator\bin\Debug\calculator.exe
+C:\Users\Tameka\Downloads\calculator (1)\calculator\calculator\bin\Debug\calculator.pdb
+C:\Users\Tameka\Downloads\calculator (1)\calculator\calculator\obj\Debug\calculator.exe
+C:\Users\Tameka\Downloads\calculator (1)\calculator\calculator\obj\Debug\calculator.pdb
